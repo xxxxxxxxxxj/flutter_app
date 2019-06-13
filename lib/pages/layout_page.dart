@@ -33,7 +33,10 @@ class LayoutPage extends StatelessWidget {
           // 需要传入一个间隔值，`Flutter` 提供了很多 EdgeInsets 来设置间隔，
           // 参数也很明确，可以一一尝试
           Padding(
+            // 需要传入一个间隔值，`Flutter` 提供了很多 EdgeInsets 来设置间隔，
+            // 参数也很明确，可以一一尝试
             padding: const EdgeInsets.symmetric(vertical: 20),
+            // 传入需要间隔的部件
             child: Text('Container Text1',
                 style: TextStyle(
                   color: Colors.white,
@@ -74,6 +77,7 @@ class LayoutPage extends StatelessWidget {
             alignment: Alignment.center,
             children: <Widget>[
               CircleAvatar(
+                // 圆形头像，指定半径，指定背景图为头像即可
                 backgroundImage: AssetImage('images/ali.jpg'),
                 radius: 50,
               ),
@@ -89,7 +93,27 @@ class LayoutPage extends StatelessWidget {
                 bottom: 10,
               )
             ],
-          )
+          ),
+          /*Column(
+            children: <Widget>[
+              Expanded(
+                  //等分的部件 Expanded
+                  flex: 1, // 所占比例
+                  child: Text('Container Text7',
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 20,
+                      ))),
+              Expanded(
+                  //等分的部件 Expanded
+                  flex: 2, // 所占比例
+                  child: Text('Container Text8',
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 20,
+                      )))
+            ],
+          ),*/
         ],
       ),
     ));
