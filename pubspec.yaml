@@ -73,3 +73,5 @@ flutter:
     # 这边注册资源文件，以后有图片文件也可以只注册 images 文件夹，会自动读取内部的文件
   assets:
     - images/
+  fonts:
+    - asset: fonts/iconfont.ttf

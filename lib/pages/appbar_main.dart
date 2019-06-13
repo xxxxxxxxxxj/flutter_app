@@ -3,6 +3,8 @@ import 'package:flutter_app/custom_routes.dart';
 import 'package:flutter_app/pages/checkbox_swicth_main.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_app/pages/layout_page.dart';
+import 'package:flutter_app/pages/login_page.dart';
+import 'package:flutter_app/pages/navigator_main.dart';
 
 class TabChangePage extends StatelessWidget {
   // 需要传入的参数
@@ -82,7 +84,7 @@ class TabChangePage extends StatelessWidget {
                 onPressed: () {
                   Navigator.push(context, ScalePageRoute(CheckSwitchPage()));
                 },
-                child: Text('RaisedButton Enable'),
+                child: Text('复选框和开关按钮'),
               ),
             ],
           ),
@@ -91,8 +93,9 @@ class TabChangePage extends StatelessWidget {
             children: <Widget>[
               FlatButton(onPressed: null, child: Text('FlatButton Disable')),
               FlatButton(
-                  onPressed: () => Navigator.push(context, FadeInPageRoute(LayoutPage())),
-                  child: Text('FlatButton Enable')),
+                  onPressed: () =>
+                      Navigator.push(context, FadeInPageRoute(LayoutPage())),
+                  child: Text('布局搭建')),
             ],
           ),
           Row(
@@ -104,9 +107,10 @@ class TabChangePage extends StatelessWidget {
               ),
               MaterialButton(
                 onPressed: () {
-                  print('点击MaterialButton');
+                  Navigator.push(
+                      context, RotateScalePageRoute(NavigatorPage()));
                 },
-                child: Text('MaterialButton Enable'),
+                child: Text('路由'),
               ),
             ],
           ),
@@ -126,8 +130,11 @@ class TabChangePage extends StatelessWidget {
                   color: Colors.red,
                   width: 1,
                 ),
-                onPressed: () {},
-                child: Text('OutlineButton Enable'),
+                onPressed: () {
+                  Navigator.push(
+                      context, CupertinoPageRoute(builder: (_) => LoginPage()));
+                },
+                child: Text('注册登录界面实战'),
               ),
             ],
           ),
