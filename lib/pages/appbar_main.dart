@@ -5,6 +5,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter_app/pages/layout_page.dart';
 import 'package:flutter_app/pages/login_page.dart';
 import 'package:flutter_app/pages/navigator_main.dart';
+import 'package:flutter_app/pages/registr_and_login.dart';
 
 class TabChangePage extends StatelessWidget {
   // 需要传入的参数
@@ -77,8 +78,9 @@ class TabChangePage extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
               RaisedButton(
-                onPressed: null,
-                child: Text('RaisedButton Disable'),
+                onPressed: () => Navigator.push(context,
+                    CupertinoPageRoute(builder: (_) => RegistrAndLoginPage())),
+                child: Text('注册登录界面实战'),
               ),
               RaisedButton(
                 onPressed: () {
@@ -131,10 +133,11 @@ class TabChangePage extends StatelessWidget {
                   width: 1,
                 ),
                 onPressed: () {
+                  // CupertinoPageRoute 为 iOS 风格切换，支持侧滑关闭当前页面
                   Navigator.push(
-                      context, CupertinoPageRoute(builder: (_) => LoginPage()));
+                      context, CupertinoPageRoute(builder: (_) => LoginPageTest()));
                 },
-                child: Text('注册登录界面实战'),
+                child: Text('注册登录界面实现'),
               ),
             ],
           ),

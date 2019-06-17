@@ -24,6 +24,9 @@ dependencies:
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^0.1.2
 
+  # add this line to your dependencies
+  fluttertoast: ^3.1.0
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
@@ -69,9 +72,14 @@ flutter:
     #         weight: 700
     #
     # For details regarding fonts from package dependencies,
-    # see https://flutter.dev/custom-fonts/#from-packages
-    # 这边注册资源文件，以后有图片文件也可以只注册 images 文件夹，会自动读取内部的文件
+  # see https://flutter.dev/custom-fonts/#from-packages
+  # 这边注册资源文件，以后有图片文件也可以只注册 images 文件夹，会自动读取内部的文件
   assets:
     - images/
+
+
   fonts:
-    - asset: fonts/iconfont.ttf
+    - family: IconFonts
+      fonts:
+      - asset: fonts/iconfont.ttf
+

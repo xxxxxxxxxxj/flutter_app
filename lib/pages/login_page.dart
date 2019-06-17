@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 
-class LoginPage extends StatefulWidget {
+class LoginPageTest extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {
-    return _LoginPageState();
+    return _LoginPageTestState();
   }
 }
 
-class _LoginPageState extends State<LoginPage> {
+class _LoginPageTestState extends State<LoginPageTest> {
   // 可以传入初始值
   TextEditingController _textEditingController = TextEditingController();
   FocusNode _focusNode = FocusNode();
