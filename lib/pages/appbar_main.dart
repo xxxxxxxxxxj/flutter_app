@@ -2,10 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter_app/custom_routes.dart';
 import 'package:flutter_app/pages/checkbox_swicth_main.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:flutter_app/pages/expansiontile_page.dart';
+import 'package:flutter_app/pages/gridview_page.dart';
 import 'package:flutter_app/pages/layout_page.dart';
+import 'package:flutter_app/pages/listview_page.dart';
 import 'package:flutter_app/pages/login_page.dart';
 import 'package:flutter_app/pages/navigator_main.dart';
 import 'package:flutter_app/pages/registr_and_login.dart';
+import 'package:flutter_app/pages/slide_layout.dart';
 
 class TabChangePage extends StatelessWidget {
   // 需要传入的参数
@@ -78,8 +82,10 @@ class TabChangePage extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
               RaisedButton(
-                onPressed: () => Navigator.push(context,
-                    CupertinoPageRoute(builder: (_) => RegistrAndLoginPage())),
+                onPressed: () => Navigator.push(
+                    context,
+                    CupertinoPageRoute(
+                        builder: (context) => RegistrAndLoginPage())),
                 child: Text('注册登录界面实战'),
               ),
               RaisedButton(
@@ -93,7 +99,10 @@ class TabChangePage extends StatelessWidget {
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
-              FlatButton(onPressed: null, child: Text('FlatButton Disable')),
+              FlatButton(
+                  onPressed: () => Navigator.push(context,
+                      CupertinoPageRoute(builder: (_) => SlideLayoutPage())),
+                  child: Text('滑动控件')),
               FlatButton(
                   onPressed: () =>
                       Navigator.push(context, FadeInPageRoute(LayoutPage())),
@@ -104,8 +113,11 @@ class TabChangePage extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
               MaterialButton(
-                onPressed: null,
-                child: Text('MaterialButton Disable'),
+                onPressed: () {
+                  Navigator.push(context,
+                      CupertinoPageRoute(builder: (_) => ListViewPage()));
+                },
+                child: Text('ListView'),
               ),
               MaterialButton(
                 onPressed: () {
@@ -124,8 +136,13 @@ class TabChangePage extends StatelessWidget {
                   color: Colors.red,
                   width: 1,
                 ),
-                onPressed: null,
-                child: Text('OutlineButton Disable'),
+                onPressed: () {
+                  Navigator.push(
+                      context,
+                      CupertinoPageRoute(
+                          builder: (context) => ExpansionTilePage()));
+                },
+                child: Text('折叠列表ExpansionTile'),
               ),
               OutlineButton(
                 borderSide: BorderSide(
@@ -134,8 +151,36 @@ class TabChangePage extends StatelessWidget {
                 ),
                 onPressed: () {
                   // CupertinoPageRoute 为 iOS 风格切换，支持侧滑关闭当前页面
-                  Navigator.push(
-                      context, CupertinoPageRoute(builder: (_) => LoginPageTest()));
+                  Navigator.push(context,
+                      CupertinoPageRoute(builder: (_) => LoginPageTest()));
+                },
+                child: Text('注册登录界面实现'),
+              ),
+            ],
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              OutlineButton(
+                borderSide: BorderSide(
+                  color: Colors.red,
+                  width: 1,
+                ),
+                onPressed: () {
+                  Navigator.push(context,
+                      CupertinoPageRoute(builder: (context) => GridViewPage()));
+                },
+                child: Text('GridView'),
+              ),
+              OutlineButton(
+                borderSide: BorderSide(
+                  color: Colors.red,
+                  width: 1,
+                ),
+                onPressed: () {
+                  // CupertinoPageRoute 为 iOS 风格切换，支持侧滑关闭当前页面
+                  Navigator.push(context,
+                      CupertinoPageRoute(builder: (_) => LoginPageTest()));
                 },
                 child: Text('注册登录界面实现'),
               ),
