@@ -59,6 +59,28 @@ class ExpansionTilePage extends StatelessWidget {
       'Child F5'
     ]
   };
+  var _fiveLevelData = [
+    [
+      [
+        ['A0', 'A1', 'A2', 'A3'],
+        ['B0', 'B1', 'B2', 'B3']
+      ],
+      [
+        ['C0', 'C1', 'C2', 'A3'],
+        ['D0', 'D1', 'D2', 'D3']
+      ]
+    ],
+    [
+      [
+        ['A0', 'A1', 'A2', 'A3'],
+        ['B0', 'B1', 'B2', 'B3']
+      ],
+      [
+        ['C0', 'C1', 'C2', 'A3'],
+        ['D0', 'D1', 'D2', 'D3']
+      ]
+    ]
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -66,35 +88,40 @@ class ExpansionTilePage extends StatelessWidget {
       appBar: AppBar(
         title: Text('折叠列表ExpansionTile'),
       ),
-      /*body: ExpansionTile(
-        title: Text('父亲'),
-        // 最前面的 widget
-        leading: Icon(Icons.phone_iphone),
-        //替换默认箭头
-        trailing: Icon(Icons.phone_android),
-        //默认是否展开
-        initiallyExpanded: true,
-        //展开时的背景色
-        backgroundColor: Colors.blue,
-        //展开或收起的回调
-        onExpansionChanged: (isOpen) {
-          print('当前状态为：$isOpen' == true ? '展开' : '收起');
-        },
-        children: List.generate(11, (index) {
-          Container(
-            height: 50,
-            alignment: Alignment.centerLeft,
-            child: Padding(
-              padding: EdgeInsets.only(left: 80),
-              child: Text(
-                '儿子：$index',
-                style: TextStyle(fontSize: 20, color: Colors.black),
-              ),
+      /*body: SingleChildScrollView(
+          child: ExpansionTile(
+            title: Text(
+              '父亲',
+              style: TextStyle(fontSize: 20),
             ),
-          );
-        }),
-      ),*/
-      body: ListView(
+            // 最前面的 widget
+            leading: Icon(Icons.phone_iphone),
+            //替换默认箭头
+            trailing: Icon(Icons.phone_android),
+            //默认是否展开
+            initiallyExpanded: true,
+            //展开时的背景色
+            backgroundColor: Colors.yellow[100],
+            //展开或收起的回调
+            onExpansionChanged: (isOpen) {
+              print('当前状态为：$isOpen' == true ? '展开' : '收起');
+            },
+            children: List.generate(
+                11,
+                (index) => Container(
+                      height: 50,
+                      alignment: Alignment.centerLeft,
+                      child: Padding(
+                        padding: EdgeInsets.only(left: 80),
+                        child: Text(
+                          '儿子：$index',
+                          style: TextStyle(fontSize: 15, color: Colors.black),
+                        ),
+                      ),
+                    )),
+          ),
+        )
+        body: ListView(
         children: _keys
             .map((key) => ExpansionTile(
                   title: Text(key),
@@ -111,6 +138,37 @@ class ExpansionTilePage extends StatelessWidget {
                       .toList(),
                 ))
             .toList(),
+      ),*/
+      //五层折叠列表,配合SingleChildScrollView使用，不然会显示不全
+      body: SingleChildScrollView(
+        child: ExpansionTile(
+          title: Text("父亲1"),
+          children: _fiveLevelData
+              .map((_forthLevelData) => ExpansionTile(
+                    title: Text('父亲2'),
+                    children: _forthLevelData
+                        .map((_threeLevelData) => ExpansionTile(
+                              title: Text("父亲3"),
+                              children: _threeLevelData
+                                  .map((_twoLevelData) => ExpansionTile(
+                                        title: Text('父亲4'),
+                                        children: _twoLevelData
+                                            .map((str) => Container(
+                                                  alignment:
+                                                      Alignment.centerLeft,
+                                                  height: 50,
+                                                  padding:
+                                                      EdgeInsets.only(left: 50),
+                                                  child: Text(str),
+                                                ))
+                                            .toList(),
+                                      ))
+                                  .toList(),
+                            ))
+                        .toList(),
+                  ))
+              .toList(),
+        ),
       ),
     );
   }

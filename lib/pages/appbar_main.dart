@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_app/custom_routes.dart';
 import 'package:flutter_app/pages/checkbox_swicth_main.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:flutter_app/pages/customscrollview_page.dart';
 import 'package:flutter_app/pages/expansiontile_page.dart';
 import 'package:flutter_app/pages/gridview_page.dart';
 import 'package:flutter_app/pages/layout_page.dart';
@@ -9,6 +10,7 @@ import 'package:flutter_app/pages/listview_page.dart';
 import 'package:flutter_app/pages/login_page.dart';
 import 'package:flutter_app/pages/navigator_main.dart';
 import 'package:flutter_app/pages/registr_and_login.dart';
+import 'package:flutter_app/pages/scrollcontroller_page.dart';
 import 'package:flutter_app/pages/slide_layout.dart';
 
 class TabChangePage extends StatelessWidget {
@@ -107,6 +109,10 @@ class TabChangePage extends StatelessWidget {
                   onPressed: () =>
                       Navigator.push(context, FadeInPageRoute(LayoutPage())),
                   child: Text('布局搭建')),
+              FlatButton(
+                  onPressed: () => Navigator.push(context,
+                      CupertinoPageRoute(builder: (_) => CustomScrollViewPage())),
+                  child: Text('CustomScrollView')),
             ],
           ),
           Row(
@@ -125,6 +131,12 @@ class TabChangePage extends StatelessWidget {
                       context, RotateScalePageRoute(NavigatorPage()));
                 },
                 child: Text('路由'),
+              ),MaterialButton(
+                onPressed: () {
+                  Navigator.push(
+                      context, RotateScalePageRoute(ScrollControllerPage()));
+                },
+                child: Text('ScrollController'),
               ),
             ],
           ),
