@@ -9,9 +9,12 @@ import 'package:flutter_app/pages/layout_page.dart';
 import 'package:flutter_app/pages/listview_page.dart';
 import 'package:flutter_app/pages/login_page.dart';
 import 'package:flutter_app/pages/navigator_main.dart';
+import 'package:flutter_app/pages/nestedscrollview_page.dart';
+import 'package:flutter_app/pages/sliver_page.dart';
 import 'package:flutter_app/pages/registr_and_login.dart';
 import 'package:flutter_app/pages/scrollcontroller_page.dart';
 import 'package:flutter_app/pages/slide_layout.dart';
+import 'package:flutter_app/pages/sliverpersistentheader_page.dart';
 
 class TabChangePage extends StatelessWidget {
   // 需要传入的参数
@@ -29,27 +32,27 @@ class TabChangePage extends StatelessWidget {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.start,
         children: <Widget>[
-          Text(
-            '哈哈哈哈哈哈哈哈哈',
-            maxLines: 4,
-            overflow: TextOverflow.values.first,
-            style: TextStyle(
-              color: Colors.lightBlueAccent,
-              fontSize: 14,
-              letterSpacing: 2,
-              backgroundColor: Colors.amber,
-              decoration: TextDecoration.underline,
-              decorationColor: Colors.red,
-              decorationStyle: TextDecorationStyle.double,
-            ),
-          ),
-          Text(
-            content,
-            style: Theme.of(context).textTheme.display1,
-          ),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
+              Text(
+                '哈哈',
+                maxLines: 4,
+                overflow: TextOverflow.values.first,
+                style: TextStyle(
+                  color: Colors.lightBlueAccent,
+                  fontSize: 14,
+                  letterSpacing: 2,
+                  backgroundColor: Colors.amber,
+                  decoration: TextDecoration.underline,
+                  decorationColor: Colors.red,
+                  decorationStyle: TextDecorationStyle.double,
+                ),
+              ),
+              Text(
+                content,
+                style: Theme.of(context).textTheme.display1,
+              ),
               Image(
                   image: AssetImage(_assetPicUrl),
                   width: 30,
@@ -110,8 +113,10 @@ class TabChangePage extends StatelessWidget {
                       Navigator.push(context, FadeInPageRoute(LayoutPage())),
                   child: Text('布局搭建')),
               FlatButton(
-                  onPressed: () => Navigator.push(context,
-                      CupertinoPageRoute(builder: (_) => CustomScrollViewPage())),
+                  onPressed: () => Navigator.push(
+                      context,
+                      CupertinoPageRoute(
+                          builder: (_) => CustomScrollViewPage())),
                   child: Text('CustomScrollView')),
             ],
           ),
@@ -131,7 +136,8 @@ class TabChangePage extends StatelessWidget {
                       context, RotateScalePageRoute(NavigatorPage()));
                 },
                 child: Text('路由'),
-              ),MaterialButton(
+              ),
+              MaterialButton(
                 onPressed: () {
                   Navigator.push(
                       context, RotateScalePageRoute(ScrollControllerPage()));
@@ -192,9 +198,41 @@ class TabChangePage extends StatelessWidget {
                 onPressed: () {
                   // CupertinoPageRoute 为 iOS 风格切换，支持侧滑关闭当前页面
                   Navigator.push(context,
-                      CupertinoPageRoute(builder: (_) => LoginPageTest()));
+                      CupertinoPageRoute(builder: (_) => SliverPage()));
                 },
-                child: Text('注册登录界面实现'),
+                child: Text('SliverPage'),
+              ),
+              OutlineButton(
+                borderSide: BorderSide(
+                  color: Colors.red,
+                  width: 1,
+                ),
+                onPressed: () {
+                  // CupertinoPageRoute 为 iOS 风格切换，支持侧滑关闭当前页面
+                  Navigator.push(
+                      context,
+                      CupertinoPageRoute(
+                          builder: (_) => SliverPersistentHeaderPage()));
+                },
+                child: Text('SliverHeader'),
+              ),
+            ],
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              OutlineButton(
+                borderSide: BorderSide(
+                  color: Colors.red,
+                  width: 1,
+                ),
+                onPressed: () {
+                  Navigator.push(
+                      context,
+                      CupertinoPageRoute(
+                          builder: (context) => NestedScrollViewPage()));
+                },
+                child: Text('NestedScrollView'),
               ),
             ],
           ),
