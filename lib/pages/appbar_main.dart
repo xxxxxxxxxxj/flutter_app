@@ -3,6 +3,7 @@ import 'package:flutter_app/custom_routes.dart';
 import 'package:flutter_app/pages/checkbox_swicth_main.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_app/pages/customscrollview_page.dart';
+import 'package:flutter_app/pages/dialog_page.dart';
 import 'package:flutter_app/pages/expansiontile_page.dart';
 import 'package:flutter_app/pages/gridview_page.dart';
 import 'package:flutter_app/pages/layout_page.dart';
@@ -233,6 +234,18 @@ class TabChangePage extends StatelessWidget {
                           builder: (context) => NestedScrollViewPage()));
                 },
                 child: Text('NestedScrollView'),
+              ),OutlineButton(
+                borderSide: BorderSide(
+                  color: Colors.red,
+                  width: 1,
+                ),
+                onPressed: () {
+                  Navigator.push(
+                      context,
+                      CupertinoPageRoute(
+                          builder: (context) => DialogPage()));
+                },
+                child: Text('弹窗提示'),
               ),
             ],
           ),
