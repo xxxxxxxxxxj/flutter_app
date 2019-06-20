@@ -82,7 +82,7 @@ class NestedScrollViewPage extends StatelessWidget {
                                                       color: colors[index % 6]),
                                                 ),
                                               ),
-                                          childCount: 10),
+                                          childCount: 100000),
                                       itemExtent: 50)
                                 ],
                               )))
