@@ -27,6 +27,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
       ),
       home: MyHomePage(title: '第一个flutter项目'),
+      //设置支持中文
       supportedLocales: const [const Locale('zh')],
       localizationsDelegates: [
         GlobalMaterialLocalizations.delegate,
