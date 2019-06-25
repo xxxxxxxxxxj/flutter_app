@@ -10,6 +10,8 @@ class GesturePage extends StatefulWidget {
 class _GesturePageState extends State<GesturePage> {
   double left = 0.0;
   double top = 0.0;
+  double width = 100;
+  double height = 100;
 
   @override
   Widget build(BuildContext context) {
@@ -22,8 +24,8 @@ class _GesturePageState extends State<GesturePage> {
         children: <Widget>[
           Positioned(
             child: Container(
-              width: 50,
-              height: 50,
+              width: width,
+              height: height,
               color: Colors.red,
             ),
             left: left,
@@ -36,7 +38,36 @@ class _GesturePageState extends State<GesturePage> {
               width: MediaQuery.of(context).size.width - 10,
               height: MediaQuery.of(context).size.height,
             ),
-            onPanDown: (details) => {},
+            onPanDown: (details) {
+              setState(() {
+                left = details.globalPosition.dx;
+                top = details.globalPosition.dy;
+              });
+            },
+            onPanUpdate: (details) {
+              setState(() {
+                left = details.globalPosition.dx;
+                top = details.globalPosition.dy;
+              });
+            },
+            onPanCancel: () {
+              setState(() {
+                left = 0;
+                top = 0;
+              });
+            },
+            onPanEnd: (details) {
+              setState(() {
+                left = 0;
+                top = 0;
+              });
+            },
+            /*onScaleUpdate: (details) {
+              setState(() {
+                width = width * details.scale;
+                height = height * details.scale;
+              });
+            },*/
           )
         ],
       ),

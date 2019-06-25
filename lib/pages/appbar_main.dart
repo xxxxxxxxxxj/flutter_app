@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app/custom_routes.dart';
+import 'package:flutter_app/pages/animation_page.dart';
 import 'package:flutter_app/pages/checkbox_swicth_main.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_app/pages/customscrollview_page.dart';
@@ -17,6 +18,8 @@ import 'package:flutter_app/pages/registr_and_login.dart';
 import 'package:flutter_app/pages/scrollcontroller_page.dart';
 import 'package:flutter_app/pages/slide_layout.dart';
 import 'package:flutter_app/pages/sliverpersistentheader_page.dart';
+import 'package:flutter_app/pages/staggeredanimations_page.dart';
+import 'package:flutter_app/pages/staggeredanimationsdemo_page.dart';
 
 class TabChangePage extends StatelessWidget {
   // 需要传入的参数
@@ -257,8 +260,10 @@ class TabChangePage extends StatelessWidget {
                     width: 1,
                   ),
                   onPressed: () {
-                    Navigator.push(context,
-                        CupertinoPageRoute(builder: (context) => GesturePage()));
+                    Navigator.push(
+                        context,
+                        CupertinoPageRoute(
+                            builder: (context) => GesturePage()));
                   },
                   child: Text('Gesture'),
                 ),
@@ -276,9 +281,9 @@ class TabChangePage extends StatelessWidget {
                     Navigator.push(
                         context,
                         CupertinoPageRoute(
-                            builder: (context) => NestedScrollViewPage()));
+                            builder: (context) => AnimationPage()));
                   },
-                  child: Text('NestedScrollView'),
+                  child: Text('Animation'),
                 ),
                 OutlineButton(
                   borderSide: BorderSide(
@@ -286,10 +291,13 @@ class TabChangePage extends StatelessWidget {
                     width: 1,
                   ),
                   onPressed: () {
-                    Navigator.push(context,
-                        CupertinoPageRoute(builder: (context) => DialogPage()));
+                    Navigator.push(
+                        context,
+                        CupertinoPageRoute(
+                            builder: (context) =>
+                                StaggeredAnimationsDemoPage()));
                   },
-                  child: Text('弹窗提示'),
+                  child: Text('StaggeredAnimationsDemo'),
                 ),
               ],
             ),
