@@ -8,6 +8,7 @@ import 'package:flutter_app/pages/dialog_page.dart';
 import 'package:flutter_app/pages/expansiontile_page.dart';
 import 'package:flutter_app/pages/gesture_page.dart';
 import 'package:flutter_app/pages/gridview_page.dart';
+import 'package:flutter_app/pages/hero_page.dart';
 import 'package:flutter_app/pages/layout_page.dart';
 import 'package:flutter_app/pages/listview_page.dart';
 import 'package:flutter_app/pages/login_page.dart';
@@ -18,7 +19,6 @@ import 'package:flutter_app/pages/registr_and_login.dart';
 import 'package:flutter_app/pages/scrollcontroller_page.dart';
 import 'package:flutter_app/pages/slide_layout.dart';
 import 'package:flutter_app/pages/sliverpersistentheader_page.dart';
-import 'package:flutter_app/pages/staggeredanimations_page.dart';
 import 'package:flutter_app/pages/staggeredanimationsdemo_page.dart';
 
 class TabChangePage extends StatelessWidget {
@@ -313,9 +313,9 @@ class TabChangePage extends StatelessWidget {
                     Navigator.push(
                         context,
                         CupertinoPageRoute(
-                            builder: (context) => NestedScrollViewPage()));
+                            builder: (context) => HeroPage()));
                   },
-                  child: Text('NestedScrollView'),
+                  child: Text('Hreo动画'),
                 ),
                 OutlineButton(
                   borderSide: BorderSide(
