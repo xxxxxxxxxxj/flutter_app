@@ -9,11 +9,13 @@ import 'package:flutter_app/pages/expansiontile_page.dart';
 import 'package:flutter_app/pages/gesture_page.dart';
 import 'package:flutter_app/pages/gridview_page.dart';
 import 'package:flutter_app/pages/hero_page.dart';
+import 'package:flutter_app/pages/httpdemo_page.dart';
 import 'package:flutter_app/pages/layout_page.dart';
 import 'package:flutter_app/pages/listview_page.dart';
 import 'package:flutter_app/pages/login_page.dart';
 import 'package:flutter_app/pages/navigator_main.dart';
 import 'package:flutter_app/pages/nestedscrollview_page.dart';
+import 'package:flutter_app/pages/schemeurl_page.dart';
 import 'package:flutter_app/pages/sliver_page.dart';
 import 'package:flutter_app/pages/registr_and_login.dart';
 import 'package:flutter_app/pages/scrollcontroller_page.dart';
@@ -324,9 +326,19 @@ class TabChangePage extends StatelessWidget {
                   ),
                   onPressed: () {
                     Navigator.push(context,
-                        CupertinoPageRoute(builder: (context) => DialogPage()));
+                        CupertinoPageRoute(builder: (context) => HttpDemoPage()));
                   },
-                  child: Text('弹窗提示'),
+                  child: Text('http测试'),
+                ),OutlineButton(
+                  borderSide: BorderSide(
+                    color: Colors.red,
+                    width: 1,
+                  ),
+                  onPressed: () {
+                    Navigator.push(context,
+                        CupertinoPageRoute(builder: (context) => SchemeUrlPage()));
+                  },
+                  child: Text('SchemeUrl'),
                 ),
               ],
             ),
