@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app/custom_routes.dart';
+import 'package:flutter_app/pages/Imagepicker_page.dart';
 import 'package:flutter_app/pages/animation_page.dart';
 import 'package:flutter_app/pages/checkbox_swicth_main.dart';
 import 'package:flutter/cupertino.dart';
@@ -318,6 +319,45 @@ class TabChangePage extends StatelessWidget {
                             builder: (context) => HeroPage()));
                   },
                   child: Text('Hreo动画'),
+                ),
+                OutlineButton(
+                  borderSide: BorderSide(
+                    color: Colors.red,
+                    width: 1,
+                  ),
+                  onPressed: () {
+                    Navigator.push(context,
+                        CupertinoPageRoute(builder: (context) => HttpDemoPage()));
+                  },
+                  child: Text('http测试'),
+                ),OutlineButton(
+                  borderSide: BorderSide(
+                    color: Colors.red,
+                    width: 1,
+                  ),
+                  onPressed: () {
+                    Navigator.push(context,
+                        CupertinoPageRoute(builder: (context) => SchemeUrlPage()));
+                  },
+                  child: Text('SchemeUrl'),
+                ),
+              ],
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                OutlineButton(
+                  borderSide: BorderSide(
+                    color: Colors.red,
+                    width: 1,
+                  ),
+                  onPressed: () {
+                    Navigator.push(
+                        context,
+                        CupertinoPageRoute(
+                            builder: (context) => ImagePickerPage()));
+                  },
+                  child: Text('image_picker'),
                 ),
                 OutlineButton(
                   borderSide: BorderSide(
