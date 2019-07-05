@@ -28,8 +28,8 @@ def keystorePropertiesFile = rootProject.file("key.properties")
 def keystoreProperties = new Properties()
 keystoreProperties.load(new FileInputStream(keystorePropertiesFile))
 android {
-    compileSdkVersion 26
-    buildToolsVersion '28.0.3'
+    compileSdkVersion 28
+    buildToolsVersion "28.0.3"
 
     sourceSets {
         main.java.srcDirs += 'src/main/kotlin'
@@ -44,8 +44,6 @@ android {
         applicationId "flutter.exapmle.com.flutter_app"
         minSdkVersion 16
         targetSdkVersion 26
-        versionCode 1
-        versionName "1.0"
         versionCode flutterVersionCode.toInteger()
         versionName flutterVersionName
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
